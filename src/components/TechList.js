@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class TechList extends Component {
     state = {
+        newTech: '',
         techs: [
             'NodeJS',
             'ReactJS',
@@ -9,14 +10,24 @@ class TechList extends Component {
         ]
     }
 
+    handleChangeInput = e => {
+        this.setState({ newTech: e.target.value });
+    };
+
+    handleSubmitForm = e => {
+        e.preventDefault();
+        this.setState({ techs: [...this.state.techs, this.state.newTech], newTech: '' });
+    };
+
     render() {
-        console.log(this.state);
         return (
-            <ul>
-                <li>NodeJS</li>
-                <li>ReactJS</li>
-                <li>ReactNative</li>
-            </ul>
+            <form onSubmit={this.handleSubmitForm}>
+                <ul>
+                    {this.state.techs.map(tech => <li key={tech}>{tech}</li>)}
+                </ul>
+                <input onChange={this.handleChangeInput} value={this.state.newTech} />
+                <button type="submit">Adicionar</button>
+            </form>
         );
     }
 }

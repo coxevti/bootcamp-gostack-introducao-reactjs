@@ -2,8 +2,10 @@ import React from 'react';
 
 import './App.css';
 
+import profile from './assets/blue-and-purple-color-pencils-159825.jpg'
+
 function App() {
-    return <h1>Component reactjs</h1>
+    return <img src={profile} alt="profile" width="500"/>
 }
 
 export default App;

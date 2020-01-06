@@ -22,14 +22,14 @@ class TechList extends Component {
     };
 
     handleDestroy = tech => {
-        this.setState({ techs: this.state.techs.filter(tc => tc !== tech)});
+        this.setState({ techs: this.state.techs.filter(tc => tc !== tech) });
     };
 
     render() {
         return (
             <form onSubmit={this.handleSubmitForm}>
                 <ul>
-                    {this.state.techs.map(tech => <TechItem key={tech} tech={tech} onDestroy={() => this.handleDestroy(tech)}/>)}
+                    {this.state.techs.map(tech => <TechItem key={tech} tech={tech} onDestroy={() => this.handleDestroy(tech)} />)}
                 </ul>
                 <input onChange={this.handleChangeInput} value={this.state.newTech} />
                 <button type="submit">Adicionar</button>
